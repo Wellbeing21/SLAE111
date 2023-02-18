@@ -12,12 +12,14 @@ struct line {
     double t;
 };
 class TriMat {
+private:
     //private field
     std::vector <line> data;
 public: //pity
-    TriMat(const std::vector<line>& data1);
+    void apply(const std::vector<line>& data1);
     //overdosing operator
-    std::array<double, 3> operator[] (int i) const;
+    const line& operator()(int i) const;
+    line& operator() (int i);
 
 
 };
