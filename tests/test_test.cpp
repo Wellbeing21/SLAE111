@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include <iostream>
 #include "../Src/solvers/solve_tridiagonal.hpp"
 #include "../Src/CSR/csrmatrix.h"
+using namespace CSR_space;
 TEST(A, B){
     std::vector<line> Mat = {{0, 2, 1},{1,10,-5},{1,-5,2},{1,4,0}};
     std::vector<double> free1 = {-5, -18, -40, -27};
@@ -38,4 +38,44 @@ TEST (B, C){
         std::cout << el << " ";
     }
 
+}
+TEST (D, E){
+    double e = 0.000001;
+    //test for yakobi, its working
+    std::vector<DOK> A {{0,0,0.7},{0,1,0.2}, {1,1,0.2}, {2,0,0.1}, {2,2,0.3} };
+    Csr_matrix M(A);
+    M.out(M);
+    std::vector<double> x0{1, 1, 1}, b{1,1,1};
+    //taking vector, now we need to use yakobi method
+    x0 = M.ReshYak(M,x0,b,e);
+    for (int i = 0; i < 3; i++) {
+        std::cout << x0[i] << "\n";
+    }
+
+}
+TEST (F, G){
+    double e = 0.000001;
+    //it's test for my G-Z method
+    std::vector<DOK> A1 {{0,0,4},{0,1,1},{1,0,1},{1,1,2}, {2,2,1} };
+    Csr_matrix M1(A1);
+    M1.out(M1);
+    std::vector<double> x01{1, 1, 3}, b1{1,1,1};
+    x01 = M1.ReshGZ(M1,x01,b1,e);
+    for (int i = 0; i < 3; i++) {
+        std::cout << x01[i] << "\n";
+    }
+
+}
+TEST (H, I){
+    double e = 0.000001;
+    double t = 0.1;
+    std::vector<DOK> A2 {{0,0,3},{0,1,0.5},{1,0,1},{1,1,2}, {2,2,1} };
+    Csr_matrix M2(A2);
+    M2.out(M2);
+    std::vector<double> x02{1, 1, 1}, b2{1,1,1};
+    x02= M2.ReshIT(M2,x02,b2,t,e);
+    for (int i = 0; i < 3; i++) {
+        std::cout << x02[i] << "\n";
+    }
+    //it's working
 }
