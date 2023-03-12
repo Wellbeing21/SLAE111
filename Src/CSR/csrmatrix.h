@@ -25,6 +25,7 @@ namespace CSR_space {
 
         std::vector<double> operator*(std::vector<double> fre);
         std::vector<double> ReshIT(Csr_matrix &A, std::vector<double> x0, std::vector<double> b, double t, double e);
+        std::vector<double> ReshITS(Csr_matrix &A, std::vector<double> x0, std::vector<double> b, int rd, double e, double lam1, double lam2);
         std::vector<double> ReshGZ(Csr_matrix &A, std::vector<double> x0, std::vector<double> b, double e);
         double MulGZU(std::vector<double> fre, int i);
         double MulGZD(std::vector<double> fre, int i);
@@ -36,11 +37,13 @@ namespace CSR_space {
 
     void out(Csr_matrix &A);
 
-    std::vector<double> ReshIT(Csr_matrix &A, std::vector<double> x0, std::vector<double> b, double t, double e);
+//std::vector<double> ReshITS(Csr_matrix &A, std::vector<double> x0, std::vector<double> b, int rd, double e, double lam1, double lam2);
 
-    std::vector<double> ReshGZ(Csr_matrix &A, std::vector<double> x0, std::vector<double> b, double e);
+    //  std::vector<double> ReshIT(Csr_matrix &A, std::vector<double> x0, std::vector<double> b, double t, double e);
 
-    double MulGZU(std::vector<double> fre, int i);
+    //std::vector<double> ReshGZ(Csr_matrix &A, std::vector<double> x0, std::vector<double> b, double e);
+
+    //double MulGZU(std::vector<double> fre, int i);
 };
 
 

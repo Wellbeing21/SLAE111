@@ -79,3 +79,18 @@ TEST (H, I){
     }
     //it's working
 }
+TEST (IT, Smart){
+//new work
+    double e = 0.000001;
+    std::vector<DOK> AA {{0,0,3},{0,1,0.5},{1,0,1},{1,1,2}, {2,2,1} };
+    Csr_matrix M3(AA);
+    M3.out(M3);
+    std::vector<double> x03{1, 1, 1}, b3{1,1,1};
+
+x03= M3.ReshITS(M3,x03,b3,3,e,2.,8.);
+    for (int i = 0; i < 3; i++) {
+        std::cout << x03[i] << "\n";
+    }
+
+
+}

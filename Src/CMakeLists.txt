@@ -4,7 +4,7 @@ project(SLAE)
 set(CMAKE_CXX_STANDARD 20)
 file(GLOB_RECURSE source source *.h *.hpp *.cpp )
 #add_library(TRIDIAGONAL Tridiagonal_matrix/tridiagonal.cpp)
-add_library(SLAE ${source})
+add_library(SLAE ${source} )
 #target_link_libraries(SLAE TRIDIAGONAL)
 
 
